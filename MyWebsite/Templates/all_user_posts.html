@@ -1,0 +1,9 @@
+{% extends "posts_div.html" %}
+{% block title %} SELWY - {{ username.capitalize() }}'s Posts {% endblock %}
+{% block header %} {{ username.capitalize() }}'s Posts {% endblock %}
+{% block my %}
+<!-- add a Back Button  -->
+<div align="center" class="my-4">
+    <a href="/home" class="btn  btn-outline-secondary btn-rounded" >Back</a>
+</div>
+{% endblock %}

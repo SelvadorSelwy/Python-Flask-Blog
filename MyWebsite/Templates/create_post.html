@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} SELWY - {{ user.username }} Write Your Thoughts {% endblock %}
+{% block content %} 
+<h2 align="center"> Write Your Thoughts</h2>
+<form action="" method="POST">
+    <textarea name="text" id="text" cols="30" rows="10" class="form-control"></textarea>
+    <div align="center" class="my-3">
+        <button class=" btn btn-outline-secondary btn-rounded" type="submit">Post</button>
+    </div>
+</form>
+<div align="center">
+    <a href="/home" class="btn btn-outline-secondary btn-reounded-pill d-inline-block w-10 mb-5">Back</a>
+</div>
+<!-- <button class=" btn btn-primary btn-rounded" type="submit">Back</button> -->
+{% endblock %}

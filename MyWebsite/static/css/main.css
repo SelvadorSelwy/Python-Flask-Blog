@@ -1,0 +1,34 @@
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    background: #eee;
+    position: relative;
+    padding-top: 100px;
+}
+.fixed{
+    position:fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid #6c757d;;
+    backdrop-filter: blur(10px);
+    color:#6c757d;
+}
+.nav-link:focus{
+color:#6c757d;
+}
+svg{
+    cursor: pointer;
+}
+h1,h2,h3,h4,h5,h6{
+    color:#6c757d;
+}
+.box{
+    border-radius: 10px;
+}
+.footer{
+        background-color: #c5c4cb;
+        border-top: 2px solid #0d6efd;
+}

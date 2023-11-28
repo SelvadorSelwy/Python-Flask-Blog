@@ -1,0 +1,77 @@
+{% extends "posts_div.html" %}
+{% block title %} Home {% endblock %}
+{% block section %}
+
+<div class="row my-5">
+    <div class="container fluid d-flex justify-content-between align-items-center py-2">
+        <div class="col-md-5">
+            <h3 class="ps-0">Selwy Chat Platform</h3>
+            <p class="text-dark ps-0">Welcome to Selwy chat platform. <br> all you need is a valid
+                email to join millions of peoples chatting.</p>
+            <a href="/login" class="btn btn-outline-secondary w-25 my-3"> Log in </a>
+            <div>
+                <p class="text-dark ps-0 d-inline-block">Not Registed!</p>
+                <a href="/signup" class="btn text-primary">Sign-up Now</a>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="box bg-secondary">
+                <img src="/static/images/social-1.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block post_section %}
+<h3 align="center" class="my-5">{% block header %}Posts{% endblock %}</h3>
+
+
+<div id="show" class="mt-5">
+    {% for post in posts %}
+    <div class="card border-secondary mb-2">
+        <div class="card-header d-flex justify-content-between align-items-center bg-secondary text-light">
+            <a href="all-user-posts/{{post.user.username }}" class="btn rounded-pill  fw-bold text-light ps-0">{{ post.user.username}}</a>
+            <div>
+                <!-- Set the nuber of likes -->
+                <span class="like-post" id="like-post-{{post.id}}">{{ post.likes|length }}</span> 
+
+                <i class="far fa-thumbs-up" id=""></i>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-text text-secondary fw-bold ps-2 py-2 ">{{ post.text }}</div>
+            <hr>
+            <div class="collapse" id="comments-{{post.id}}">
+                <div class="card">
+                    <div class="card-body" id="comments-expand-{{post.id}}">
+                        {% for comment in post.comments %}
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <a href="all_user_posts.html/{{comment.user.username}}">{{ comment.user.username}}
+                                </a>: {{comment.comment}}
+                            </div>
+                            <div>
+                                <small class="text-muted">{{comment.created_date}}</small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <p class="card-text">
+                {% if post.comments|length > 0 %}
+                <a data-bs-toggle="collapse" href="#comments-{{post.id}}" role="button">
+                    <small>View {{ post.comments|length }} comments</small>
+                </a>
+                {% else %}
+                <small class="text-muted">No Comments</small>
+                {% endif %}            
+            </p>
+        </div>
+        <div class="card-footer text-muted">{{ post.created_date }}</div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
